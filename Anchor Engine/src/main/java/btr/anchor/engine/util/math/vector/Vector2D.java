@@ -15,6 +15,12 @@ public class Vector2D implements IVector, Cloneable {
         dimension[1] = y;
     }
 
+    public Vector2D(double[] dimension) {
+        this.dimension = dimension;
+        this.x = dimension[0];
+        this.y = dimension[1];
+    }
+
     public double getX() {
         return dimension[0];
     }
@@ -23,12 +29,27 @@ public class Vector2D implements IVector, Cloneable {
         return dimension[1];
     }
 
-    public static Vector2D zeroVector() {
+    public IVector zeroVector() {
+        return new Vector(0, 0);
+    }
+
+    public Vector2D zeroVector2D() {
         return new Vector2D(0, 0);
     }
 
     @Override
-    public int[] getDimentions() {
-        return new int[0];
+    public double distanceTo(Vector vector) {
+        return 0;
+    }
+
+    @Override
+    public double[] getDimentions() {
+        return dimension;
+    }
+
+
+    @Override
+    public Vector2D clone() {
+        return new Vector2D(dimension.clone());
     }
 }

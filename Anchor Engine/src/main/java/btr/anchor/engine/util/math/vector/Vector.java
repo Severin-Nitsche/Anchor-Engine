@@ -84,4 +84,22 @@ public class Vector implements IVector, Cloneable {
         return new Vector(dimensions.clone());
     }
 
+    @Override
+    public double[] getDimentions() {
+        return dimensions;
+    }
+
+    @Override
+    public double distanceTo(Vector vector) {
+        return 0;
+    }
+
+    @Override
+    public IVector zeroVector() {
+        double[] zero = new double[dimensions.length];
+        for (int i = 0; i < zero.length; i++) {
+            zero[i] = 0;
+        }
+        return new Vector(zero);
+    }
 }

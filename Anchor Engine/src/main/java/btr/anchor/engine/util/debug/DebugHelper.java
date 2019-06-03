@@ -1,11 +1,8 @@
 package btr.anchor.engine.util.debug;
 
-import btr.anchor.engine.display.Display;
 import btr.anchor.engine.display.image.DisplayImage;
 import btr.anchor.engine.util.exception.AnchorEngineException;
-import btr.anchor.engine.util.log.Logger;
 
-import java.awt.image.BufferedImage;
 import java.util.Random;
 
 public class DebugHelper {
@@ -22,7 +19,7 @@ public class DebugHelper {
         return s.toString();
     }
 
-    public static DisplayImage genearateRandomImage(int width, int height) {
+    public static DisplayImage generateRandomNoiseImage(int width, int height) {
         if (height <= 0 || width <= 0) {
             throw new AnchorEngineException();
         }
@@ -33,8 +30,23 @@ public class DebugHelper {
             colors[i] = random.nextInt(16777215);
         }
         image.setColors(colors);
-        Logger.debug.send("Random DisplayImage generated!");
         return image;
+    }
 
+    public static int randomInt(int max) {
+        return random.nextInt(max);
+    }
+
+    public static float randomFloat() {
+        return random.nextFloat();
+    }
+
+    public static double randomDouble() {
+        return random.nextDouble();
+    }
+
+    public static char randomChar() {
+        int slength = randomInt(50);
+        return generateRandomString(slength).charAt(randomInt(slength - 1));
     }
 }

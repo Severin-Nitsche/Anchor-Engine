@@ -33,12 +33,12 @@ public class AnchorEngine {
         this.APPNAME = appName;
         this.VERSION = version;
         this.RELEASESTATE = releaseState;
-        pidl = getLayerForSystem();
+        instance = this;
         DisplaySettings.width = screenSize.getWidth();
         DisplaySettings.height = screenSize.getHeight();
+        pidl = getLayerForSystem(); // open platform independence layer
         pidl.init();
-        instance = this;
-        FPS.maxFPS = 0;
+        FPS.maxFPS = 50;
         init();
         loop();
     }

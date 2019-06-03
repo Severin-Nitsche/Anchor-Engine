@@ -18,9 +18,10 @@ public class Display {
     public void renderImage() {
         renderImage = new DisplayImage(DisplaySettings.width, DisplaySettings.height);
         for (GameObject obj : AnchorEngine.instance.game.getGameObjects()) {
+            // calculate object shader
             // add GameObjects to renderImage
         }
-        // calculate shaders
+        // calculate game shaders
     }
 
 }

@@ -1,5 +1,6 @@
 package btr.anchor.psl.awt;
 
+import btr.anchor.engine.AnchorEngine;
 import btr.anchor.engine.pidl.PlatformIndependenceLayer;
 import btr.anchor.engine.util.debug.DebugHelper;
 import btr.anchor.engine.util.fps.FPS;
@@ -39,9 +40,9 @@ public class PSLAwt extends PlatformIndependenceLayer {
             protected void paintComponent(Graphics g) {
                 super.paintComponent(g);
                 if (currentImage == null) return;
-                g.drawImage(ImageConverter.displayImageToBufferedImage(DebugHelper.genearateRandomImage(getWidth(), getHeight())), 0, 0, null);
+                g.drawImage(ImageConverter.displayImageToBufferedImage(DebugHelper.generateRandomNoiseImage(getWidth(), getHeight())), 0, 0, null);
                 g.setColor(Color.BLUE);
-                g.setFont(new Font("Serif", Font.BOLD, 100));
+                g.setFont(new Font("Serif", Font.BOLD, 20));
                 g.drawString("FPS: " + FPS.fps, 100, 100);
             }
         };
