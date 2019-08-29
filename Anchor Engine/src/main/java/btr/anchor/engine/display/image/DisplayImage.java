@@ -59,5 +59,21 @@ public class DisplayImage {
         }
         return colors;
     }
+    
+    public void scale(int width, int height) {
+        int X = width;
+        int Y = height;
+        double xs = (double)pixels.length / X;
+        double ys = (double)pixels[0].length / Y;
+        int[][] newPixels = new int[X][Y];
+        for(int x=0; x<X; x++) {
+          for(int y=0; y<Y; y++) {
+            newPixels[x][y] = pixels[(int)(x*xs)][(int)(y*ys)];
+          }
+        }
+        pixels = newPixels;
+        this.width = width;
+        this.height = height;
+     }
 
 }
